@@ -4,7 +4,7 @@ namespace _2m_14_Figura
 {
     class Figura
     {
-        private string nazwa;
+        protected string nazwa;
         public Figura(string nazwa)
         {
             this.nazwa = nazwa;
@@ -23,13 +23,25 @@ namespace _2m_14_Figura
             this.bokA = bokA;
             this.bokB = bokB;
         }
+        public override string ToString()
+        {
+            return $"{nazwa} bok: {bokA}; bok: {bokB}";
+        }
 
+    }
+    class P2 : Prostokat
+    {
+        public override string ToString()
+        {
+            return $"{nazwa}";
+        }
     }
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Prostokat p1 = new Prostokat("prostokąt", 4, 5);
+            Console.WriteLine(p1);
         }
     }
 }
