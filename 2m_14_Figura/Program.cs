@@ -29,19 +29,41 @@ namespace _2m_14_Figura
         }
 
     }
-    class P2 : Prostokat
+
+
+    class Kanapka
     {
-        public override string ToString()
-        {
-            return $"{nazwa}";
-        }
+        private string _nazwa = "kanapka";
+        public virtual string nazwa { get { return _nazwa; } }
     }
+    class KanapkaZSerem : Kanapka
+    {
+        private string _nazwa = "kanapka z serem";
+        public override string nazwa { get { return _nazwa; } }
+    }
+
+
     internal class Program
     {
+        public static void pokazKanapke(Kanapka k)
+        {
+            Console.WriteLine(k.nazwa);
+        }
         static void Main(string[] args)
         {
+            Kanapka k1 = new Kanapka();
+            KanapkaZSerem k2 = new KanapkaZSerem();
+
+            pokazKanapke(k1);
+            pokazKanapke(k2);
+
+            Kanapka k3 = k2;
+           // KanapkaZSerem k4 = (KanapkaZSerem)k1;
+
+            /*
             Prostokat p1 = new Prostokat("prostokąt", 4, 5);
             Console.WriteLine(p1);
+            */
         }
     }
 }
